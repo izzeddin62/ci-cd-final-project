@@ -30,9 +30,11 @@ def bad_request(error):
     """Handles bad requests with 400_BAD_REQUEST"""
     message = str(error)
     app.logger.warning(message)
+    err = "Bad Request"
+    stat = status.HTTP_400_BAD_REQUEST
     return (
         jsonify(
-            status=status.HTTP_400_BAD_REQUEST, error="Bad Request", message=message
+            status=stat, error=err, message=message
         ),
         status.HTTP_400_BAD_REQUEST,
     )
