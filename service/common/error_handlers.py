@@ -45,8 +45,10 @@ def not_found(error):
     """Handles resources not found with 404_NOT_FOUND"""
     message = str(error)
     app.logger.warning(message)
+    stat = status.HTTP_404_NOT_FOUND
+    err = "Not Found"
     return (
-        jsonify(status=status.HTTP_404_NOT_FOUND, error="Not Found", message=message),
+        jsonify(status=stat, error=err, message=message),
         status.HTTP_404_NOT_FOUND,
     )
 
